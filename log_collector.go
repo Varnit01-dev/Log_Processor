@@ -3,13 +3,17 @@ package main
 import (
 	"encoding/json"
 	"log"
-	"net/http"
+	"net/http" 
+	"fmt"
 )
 
 type LogEntry struct {
 	Message string `json:"message"`
 	Level   string `json:"level"`
-}
+}     
+
+
+ 
 
 func main() {
 	http.HandleFunc("/logs", logsHandler)
