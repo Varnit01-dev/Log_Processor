@@ -1,0 +1,17 @@
+stages :
+- build
+- deploy 
+
+build :
+stage : build
+script :
+ - docker  build -t log-processor .
+ artifacts:
+   paths:
+   - log-processor
+
+deploy:
+ stage: deploy
+ script :
+ - docker run -p 8080:8080 log-processor
+ 
